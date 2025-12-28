@@ -30,7 +30,8 @@ export function AppProvider({ children }) {
 
     // Load data
     useEffect(() => {
-        fetch('/data.json')
+        const basePath = import.meta.env.BASE_URL || '/';
+        fetch(`${basePath}data.json`)
             .then(res => res.json())
             .then(d => {
                 setData(d);
